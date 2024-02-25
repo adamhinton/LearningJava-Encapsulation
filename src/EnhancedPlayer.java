@@ -1,45 +1,45 @@
 public class EnhancedPlayer {
-    private String name;
-    private int health;
+    private String fullName;
+    private int healthPercentage;
     private String weapon;
 
-    public EnhancedPlayer(String name) {
-        this(name, 100, "Sword");
+    public EnhancedPlayer(String fullName) {
+        this(fullName, 100, "Sword");
     }
 
-    public EnhancedPlayer(String name, int health, String weapon) {
+    public EnhancedPlayer(String fullName, int healthPercentage, String weapon) {
 
-        this.name = name;
-        if(health <=0){
-            this.health = 1;
-        } else if (health > 100) {
-            this.health = 100;
+        this.fullName = fullName;
+        if(healthPercentage <=0){
+            this.healthPercentage = 1;
+        } else if (healthPercentage > 100) {
+            this.healthPercentage = 100;
         }
         else{
-            this.health = health;
+            this.healthPercentage = healthPercentage;
         }
         this.weapon = weapon;
     }
 
 
     public void loseHealth (int damage){
-        health -= damage;
-        if (health <= 0) {
+        healthPercentage -= damage;
+        if (healthPercentage <= 0) {
             System.out.println("Player knocked out of game");
         }
     }
 
 
     public int healthRemaining(){
-        return health;
+        return healthPercentage;
     }
 
 
     public void restoreHealth(int extraHealth){
-        health += extraHealth;
-        if(health > 100){
+        healthPercentage += extraHealth;
+        if(healthPercentage > 100){
             System.out.println("Player restored to 100%");
-            health = 100;
+            healthPercentage = 100;
         }
     }
 }
